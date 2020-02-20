@@ -9,12 +9,11 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<link rel="{% static 'css/todo.css' %}"
     <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{% url 'home' %}">To-Do List</a>
+    <a class="navbar-brand" href="{% url 'home' %}">Stock portfolio</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -25,10 +24,11 @@
                 <a class="nav-link" href="{% url 'about' %}">About</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" method="POST">
+        <form action="{% url 'home' %}" class="form-inline my-2 my-lg-0" method="POST">
             {% csrf_token %}
-            <input class="form-control mr-sm-2" type="search" name="item" placeholder="To-Do Item" aria-label="Search">
-            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Add To List</button>
+            <input class="form-control mr-sm-2" type="search" name="ticker" placeholder="Get Stock Quote"
+                   aria-label="Search">
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Stock Quote</button>
         </form>
     </div>
 </nav>
